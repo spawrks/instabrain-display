@@ -2,8 +2,8 @@ var gulp = require('gulp'),
   browserify = require('gulp-browserify');
 
 gulp.task('js', function() {
-  return gulp.src('./src/js/main.js')
-    .pipe(browserify({transform: ['reactify']}))
+  return gulp.src('./src/js/**/*')
+    .pipe(browserify({transform: ['reactify', 'babelify']}))
     .pipe(gulp.dest('./static/js'))
     .pipe(require('gulp-size')());
 });
