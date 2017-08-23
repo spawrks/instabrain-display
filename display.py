@@ -20,6 +20,13 @@ def index():
 @socketio.on('connect')
 def test_message():
     print('Client connected')
+    emit('response', {'data': 42})
+
+
+@socketio.on('data')
+def test_data(message):
+    emit('response', {'data': message})
+    print('Received data: ' + message)
 
 
 @socketio.on('event')
