@@ -1,5 +1,4 @@
-var io = require('socket.io-client'),
-  Enum = require('enumify').Enum,
+var Enum = require('enumify').Enum,
   utils = require('./utils');
 
 var Shapes = require('react-shapes');
@@ -16,44 +15,46 @@ class ExperimentComponent extends React.Component {
   constructor(props) {
     super(props);
     var that = this;
-
     that.state = {
-      value: 0,
       phase: Phase.INSTRUCTION
     };
 
-    var url = 'http://' + document.domain + ':' + location.port
-    console.log(url);
-    var socket = io.connect(url);
-
-    socket.on('connect', function() {
-      console.log('connected!')
-      socket.emit('event', {data: 'connected!'});
-    });
-
-    socket.on('response', function(msg) {
-      console.log(msg.data);
-      that.setState({
-        value: msg.data
-      });
-    });
+    // TODO: this is pretty horrendous. Really, we should have this in the
+    // InstructionComponent and lift up state (Google it) from there.
+    // But we're in a rush...
+    window.onkeyup = function(e) {
+      console.log(that)
+      if (that.state.phase === Phase.INSTRUCTION) {
+        that.setState({
+          value: 0,
+          phase: Phase.FEEDBACK
+        });
+        console.log('hello!');
+      }
+    };
   }
 
   render() {
-    if (this.state.phase === Phase.INSTRUCTION) {
-      return (
-        <div>
-        <h1>{utils.test}</h1>
-        <h2>It is {new Date().toLocaleTimeString()}.</h2>
-        A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
-        <InstructionComponent />
-        </div>
-      );
-    } else {
-      return (
-        <FeedbackComponent />
-      )
-    }
+    console.log('rendering...')
+    console.log(this.state.phase)
+
+    return (
+      // <FeedbackComponent dummy='ruh roh' />
+      Hello, world
+    )
+    // TODO: Another horrible thing. Should pass state into components so they
+    // conditionally render. But being super aggro here
+    // if (this.state.phase === Phase.INSTRUCTION) {
+    // return (
+    // <InstructionComponent />
+    // );
+    // } else {
+    // var instructions = document.getElementsByClassName('instruction-container')
+    // while (instructions.length > 0) instructions[0].remove();
+    // return (
+    // <FeedbackComponent dummy='ruh roh' />
+    // );
+    // }
   }
 };
 

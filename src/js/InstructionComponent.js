@@ -3,7 +3,7 @@ class InstructionComponent extends React.Component {
     return (
       <div className='instruction-container'>
       <div className='instruction'>
-      Hello! You are seeing some instructions!
+      Hello! You are seeing some instructions! Press any key to get started.
       </div>
       </div>
     )
