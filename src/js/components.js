@@ -1,7 +1,14 @@
 io = require('socket.io-client');
+svg = require('svg.js');
 utils = require('./utils');
 
 components = {};
+
+function draw() {
+  var drawing = SVG('root').size(300, 300);
+  var rect = drawing.rect(100, 100).attr({ fill: '#f06'  });
+  return rect;
+};
 
 class Dummy extends React.Component {
   constructor(props) {
@@ -36,10 +43,13 @@ class Dummy extends React.Component {
       <h1>{utils.test}</h1>
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
       A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
+      <svg>{draw().svg()}</svg>
       </div>
     );
   }
-}
+};
+
+console.log(draw().svg());
 
 components.Dummy = Dummy;
 
