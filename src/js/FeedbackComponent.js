@@ -7,8 +7,10 @@ class FeedbackComponent extends React.Component {
 
     var that = this;
     that.state = {
-      value: 0
+      value: 0.1
     };
+
+    that.MAX_SIZE = 200;
 
     var url = 'http://' + document.domain + ':' + location.port
     console.log(url);
@@ -28,16 +30,18 @@ class FeedbackComponent extends React.Component {
   }
 
   render() {
+    var radius = this.state.value * this.MAX_SIZE;
     return (
       <div className='experiment-container'>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-      A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
-      <Shapes.Rectangle width={100} height={100}/>
-      <Shapes.Circle r={50} fill={{color:'#286e28'}} stroke={{color:'#E65243'}} strokeWidth={3} />
-
+      <div className='experiment-target'>
+      <Shapes.Circle r={radius} fill={{color:'#286e28'}} stroke={{color:'#E65243'}} strokeWidth={3} />
+      </div>
       </div>
     );
   }
 };
 
 module.exports = FeedbackComponent;
+// <h2>It is {new Date().toLocaleTimeString()}.</h2>
+// A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
+// <Shapes.Rectangle width={100} height={100}/>

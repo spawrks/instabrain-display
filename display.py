@@ -17,19 +17,19 @@ def index():
     return render_template('index.html', random_seed=random.randint(1, 9999))
 
 
-@app.route('/rt_data/', methods = ['POST'])
+@app.route('/rt_data/', methods=['POST'])
 def rt_data():
-    data=request.get_json(force=True)
-    feedback_value = data['clf_outs'][int(data['target_class'])-1]
+    data = request.get_json(force=True)
+    feedback_value = data['clf_outs'][int(data['target_class']) - 1]
     trial_num = data['trial_num']
-    socketio.emit('response',{'data':feedback_value})
+    socketio.emit('response', {'data': feedback_value})
     return 'data_received'
 
 
 @socketio.on('connect')
 def test_message():
     print('Client connected')
-    emit('response', {'data': 42})
+    emit('response', {'data': 0.5})
 
 
 @socketio.on('data')
