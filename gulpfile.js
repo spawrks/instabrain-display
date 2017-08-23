@@ -20,7 +20,16 @@ gulp.task('process', ['js', 'css'], function () {
 
 gulp.task('run', function () {
   var spawn = require('child_process').spawn;
-  var display = spawn('python', ['display.py']);
+  // var display = spawn('python', ['-u', 'display.py'], {stdio: ['ipc']});
+  var display = spawn('python', ['-u', 'display.py'])
+
+  display.stdout.on('data', function(data) {
+    console.log(data.toString('utf8').trim());
+  });
+
+  display.stderr.on('data', function(data) {
+    console.log(data.toString('utf8').trim());
+  });
 
   gulp.start('process');
 });
