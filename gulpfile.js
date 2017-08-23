@@ -3,7 +3,7 @@ var gulp = require('gulp'),
 
 gulp.task('js', function() {
   return gulp.src('src/js/**/*')
-    .pipe(browserify({transform: ['reactify', 'babelify']}))
+    .pipe(browserify({transform: ['reactify', 'babelify']}, {paths: [__dirname]}))
     .pipe(gulp.dest('static/js'))
     .pipe(require('gulp-size')());
 });
