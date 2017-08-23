@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Install python requirements
+pip install -r requirements.txt
+
+# Install yarn
+if [ ! -d "$HOME/.yarn" ]; then
+  if [ -x /usr/bin/wget ]; then
+    wget -O - https://yarnpkg.com/install.sh | bash
+  elif [ -x /usr/bin/curl ]; then
+    curl -o- -L https://yarnpkg.com/install.sh | bash
+  fi
+
+  # Add yarn to path
+  echo
+  echo 'IMPORTANT: Adding the following path(s) to your $PATH variable in ~/.bashrc:'
+  echo "- $($YARN_HOME/yarn global bin)"
+
+  echo 'export PATH='"$($YARN_HOME/yarn global bin)":'$PATH' >> ~/.bashrc
+fi
+
+export YARN_HOME=$HOME/.yarn/bin
+export YARN_BIN=$YARN_HOME/yarn
+
+$YARN_BIN global add gulp
+$YARN_BIN install --modules-folder ./static/node_modules
+

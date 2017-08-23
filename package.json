@@ -1,0 +1,22 @@
+{
+  "name": "instabrain-display",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Suo <dsuo@cs.princeton.edu>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-size": "^2.1.0",
+    "jquery": "^3.2.1",
+    "react": "^15.6.1",
+    "reactify": "^1.1.1"
+  }
+}
