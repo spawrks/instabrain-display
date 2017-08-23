@@ -11,6 +11,7 @@ class FeedbackComponent extends React.Component {
     };
 
     that.MAX_SIZE = 200;
+    that.MIN_SIZE = 50;
 
     var url = 'http://' + document.domain + ':' + location.port
     console.log(url);
@@ -30,11 +31,14 @@ class FeedbackComponent extends React.Component {
   }
 
   render() {
-    var radius = this.state.value * this.MAX_SIZE;
+    var radius = Math.min(this.state.value * this.MAX_SIZE, this.MIN_SIZE);
     return (
       <div className='experiment-container'>
+      <div className='experiment-max'>
+      <Shapes.Circle r={this.MAX_SIZE} fill={{color:'#000000'}} stroke={{color:'#286e28'}} strokeWidth={3} />
+      </div>
       <div className='experiment-target'>
-      <Shapes.Circle r={radius} fill={{color:'#286e28'}} stroke={{color:'#E65243'}} strokeWidth={3} />
+      <Shapes.Circle r={radius} fill={{color:'#286e28'}} stroke={{color:'#286e28'}} strokeWidth={3} />
       </div>
       </div>
     );
