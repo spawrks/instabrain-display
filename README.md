@@ -4,6 +4,7 @@
 
 ### Install requirements
 - ```python3```
+- ```node``` install instructions [here](https://nodejs.org/en/download/package-manager/)
 - (optional) python virtual environment
 
 ### Install display
@@ -11,10 +12,6 @@
 2. Start virtual python environment
 3. ```./bin/install```
 4. ```source ~/.bashrc```
+5. ```./bin/run```
+6. Visit ```localhost:5000```
 
-2. Create virtual env and source it using `source env/bin/activate` (OSX.
-    3. Run `[sudo] pip install -r requirements.txt` or 'pip install flask'
-    4. Run `npm install`
-    5. Run `bower install`
-    6. Run `python project/app.py` or `sh run.sh` to run the application
-    7. Visit `localhost:5000` to see the application

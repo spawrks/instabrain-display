@@ -22,6 +22,10 @@ fi
 export YARN_BIN=$HOME/.yarn/bin/yarn
 
 $YARN_BIN global add gulp
-$YARN_BIN add gulp
-$YARN_BIN install --modules-folder ./static/node_modules
+
+# TODO: This is terrible, but the commented line doesn't work
+# $YARN_BIN install --modules-folder ./static/node_modules
+$YARN_BIN install
+mkdir static
+cp -r node_modules static
 
