@@ -20,7 +20,7 @@ def index():
 @app.route('/rt_data/', methods = ['POST'])
 def rt_data():
     data=request.get_json(force=True)
-    feedback_value = data['clf_outs'][data['target_class']-1]
+    feedback_value = data['clf_outs'][int(data['target_class'])-1]
     trial_num = data['trial_num']
     socketio.emit('response',{'data':feedback_value})
     return 'data_received'
