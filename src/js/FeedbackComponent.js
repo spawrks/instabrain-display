@@ -31,12 +31,11 @@ class FeedbackComponent extends React.Component {
     console.log(this.props.dummy)
     console.log(this.state.value)
     return (
-      // <div>
-      // <h2>It is {new Date().toLocaleTimeString()}.</h2>
-      // A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
-      // <Shapes.Rectangle width='100' height='100'/>
-      // </div>
-      Hello, world!
+      <div>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
+      <Shapes.Rectangle width='100' height='100'/>
+      </div>
     );
   }
 };

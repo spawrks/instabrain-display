@@ -35,26 +35,15 @@ class ExperimentComponent extends React.Component {
   }
 
   render() {
-    console.log('rendering...')
-    console.log(this.state.phase)
-
-    return (
-      // <FeedbackComponent dummy='ruh roh' />
-      Hello, world
-    )
-    // TODO: Another horrible thing. Should pass state into components so they
-    // conditionally render. But being super aggro here
-    // if (this.state.phase === Phase.INSTRUCTION) {
-    // return (
-    // <InstructionComponent />
-    // );
-    // } else {
-    // var instructions = document.getElementsByClassName('instruction-container')
-    // while (instructions.length > 0) instructions[0].remove();
-    // return (
-    // <FeedbackComponent dummy='ruh roh' />
-    // );
-    // }
+    if (this.state.phase === Phase.INSTRUCTION) {
+      return (
+        <InstructionComponent />
+      );
+    } else {
+      return (
+        <FeedbackComponent dummy={this.props.dummy} />
+      );
+    }
   }
 };
 
