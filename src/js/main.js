@@ -1,5 +1,6 @@
-const element = <h1>Hello, world!</h1>;
+components = require('./components');
 
+const element = <components.Dummy dummy='ruh roh'/>;
 ReactDOM.render(
   element,
   document.getElementById('root')

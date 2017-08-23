@@ -23,5 +23,6 @@ export YARN_HOME=$HOME/.yarn/bin
 export YARN_BIN=$YARN_HOME/yarn
 
 $YARN_BIN global add gulp
+$YARN_BIN add gulp
 $YARN_BIN install --modules-folder ./static/node_modules
 
