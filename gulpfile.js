@@ -21,7 +21,7 @@ gulp.task('process', ['js', 'css'], function () {
 gulp.task('run', function () {
   var spawn = require('child_process').spawn;
   // var display = spawn('python', ['-u', 'display.py'], {stdio: ['ipc']});
-  var display = spawn('python', ['-u', 'display.py'])
+  var display = spawn('python3', ['-u', 'display.py'])
 
   display.stdout.on('data', function(data) {
     console.log(data.toString('utf8').trim());
