@@ -16,20 +16,18 @@ class ExperimentComponent extends React.Component {
     super(props);
     var that = this;
     that.state = {
-      phase: Phase.INSTRUCTION
+      phase: Phase.FEEDBACK
     };
 
     // TODO: this is pretty horrendous. Really, we should have this in the
     // InstructionComponent and lift up state (Google it) from there.
     // But we're in a rush...
     window.onkeyup = function(e) {
-      console.log(that)
       if (that.state.phase === Phase.INSTRUCTION) {
         that.setState({
           value: 0,
           phase: Phase.FEEDBACK
         });
-        console.log('hello!');
       }
     };
   }

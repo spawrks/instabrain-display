@@ -28,13 +28,13 @@ class FeedbackComponent extends React.Component {
   }
 
   render() {
-    console.log(this.props.dummy)
-    console.log(this.state.value)
     return (
-      <div>
+      <div className='experiment-container'>
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
       A dummy string is [{this.props.dummy}] and my state is {this.state.value}.
-      <Shapes.Rectangle width='100' height='100'/>
+      <Shapes.Rectangle width={100} height={100}/>
+      <Shapes.Circle r={50} fill={{color:'#286e28'}} stroke={{color:'#E65243'}} strokeWidth={3} />
+
       </div>
     );
   }
