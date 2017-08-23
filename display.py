@@ -1,6 +1,6 @@
 import os
 import random
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 
 
@@ -15,6 +15,15 @@ socketio = SocketIO(app, async_mode=None)
 def index():
     # TODO: remove random seed from here and index.html
     return render_template('index.html', random_seed=random.randint(1, 9999))
+
+
+@app.route('/rt_data/', methods = ['POST'])
+def rt_data():
+    data=request.get_json(force=True)
+    feedback_value = data['clf_outs'][data['target_class']-1]
+    trial_num = data['trial_num']
+    socketio.emit('response',{'data':feedback_value})
+    return 'data_received'
 
 
 @socketio.on('connect')
