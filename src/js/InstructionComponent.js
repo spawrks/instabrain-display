@@ -1,8 +1,10 @@
 class InstructionComponent extends React.Component {
   render() {
     return (
-      <div class='instructions'>
+      <div className='instruction-container'>
+      <div className='instruction'>
       Hello! You are seeing some instructions!
+      </div>
       </div>
     )
   }

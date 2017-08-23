@@ -10,7 +10,7 @@ class Phase extends Enum {}
 Phase.initEnum([
   'INSTRUCTION',
   'FEEDBACK'
-])
+]);
 
 class ExperimentComponent extends React.Component {
   constructor(props) {
