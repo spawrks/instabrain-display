@@ -14,13 +14,12 @@ if [ ! -d "$HOME/.yarn" ]; then
   # Add yarn to path
   echo
   echo 'IMPORTANT: Adding the following path(s) to your $PATH variable in ~/.bashrc:'
-  echo "- $($YARN_HOME/yarn global bin)"
+  echo "- $($HOME/.yarn/bin/yarn global bin)"
 
-  echo 'export PATH='"$($YARN_HOME/yarn global bin)":'$PATH' >> ~/.bashrc
+  echo 'export PATH='"$($HOME/.yarn/bin/yarn global bin)":'$PATH' >> ~/.bashrc
 fi
 
-export YARN_HOME=$HOME/.yarn/bin
-export YARN_BIN=$YARN_HOME/yarn
+export YARN_BIN=$HOME/.yarn/bin/yarn
 
 $YARN_BIN global add gulp
 $YARN_BIN add gulp
