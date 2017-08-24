@@ -16,7 +16,7 @@ class ExperimentComponent extends React.Component {
     super(props);
     var that = this;
     that.state = {
-      phase: Phase.FEEDBACK
+      phase: Phase.INSTRUCTION
     };
 
     // TODO: this is pretty horrendous. Really, we should have this in the
