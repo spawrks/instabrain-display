@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install python requirements
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Install yarn
 if [ ! -d "$HOME/.yarn" ]; then
