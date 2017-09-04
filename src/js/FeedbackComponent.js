@@ -7,7 +7,7 @@ class FeedbackComponent extends React.Component {
 
     var that = this;
     that.state = {
-      value: 0.1
+       value: 1.0
     };
 
     that.MAX_SIZE = 200;
@@ -23,7 +23,7 @@ class FeedbackComponent extends React.Component {
     });
 
     socket.on('response', function(msg) {
-      console.log(msg.data);
+      console.log('I got:' + msg.data);
       that.setState({
         value: msg.data
       });
@@ -31,14 +31,14 @@ class FeedbackComponent extends React.Component {
   }
 
   render() {
-    var radius = Math.min(this.state.value * this.MAX_SIZE, this.MIN_SIZE);
+    var my_radius = Math.max(this.state.value * this.MAX_SIZE, this.MIN_SIZE);
     return (
       <div className='experiment-container'>
       <div className='experiment-max'>
       <Shapes.Circle r={this.MAX_SIZE} fill={{color:'#000000'}} stroke={{color:'#286e28'}} strokeWidth={3} />
       </div>
       <div className='experiment-target'>
-      <Shapes.Circle r={radius} fill={{color:'#286e28'}} stroke={{color:'#286e28'}} strokeWidth={3} />
+      <Shapes.Circle r={my_radius} fill={{color:'#286e28'}} stroke={{color:'#286e28'}} strokeWidth={3} />
       </div>
       </div>
     );
