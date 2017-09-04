@@ -165,3 +165,6 @@ ENV/
 #yarnlock
 bin/yarn.lock
 
+#intelliJ files
+.idea
+
